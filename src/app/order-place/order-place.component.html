@@ -1,0 +1,66 @@
+<div class="flex justify-center items-center py-4">
+    <div class="w-1/2 self-center">
+
+        <div class="container ">
+            <div class="test23">
+                <p>
+
+                    <span class="textUpperL uppercase font-semibold	">
+                        <ng-container *ngIf="userDetail">
+                            {{userDetail?.userName}},
+                        </ng-container>
+                        <ng-container *ngIf="!userDetail">
+                            {{socialDetails?.name}},
+                        </ng-container>
+                    </span>
+
+                    Thank you for ordering from
+                    Your order <span class="textUpperL font-semibold">#
+                        <ng-container *ngIf="userDetail">
+                            {{userDetail?._id}}
+                        </ng-container>
+                        <ng-container *ngIf="!userDetail">
+                            {{socialDetails?.id}},
+                        </ng-container>
+
+                    </span>has been shipped.
+
+
+                    Any orders placed within an hour of each other may be shipped together.
+                </p>
+
+                <table>
+                    <tr>
+                        <th>Sr.</th>
+                        <th>Item</th>
+                        <th>Restaurants Name</th>
+                        <th>Decription</th>
+                        <th>img</th>
+                        <th>Price</th>
+                    </tr>
+                    <tr *ngFor="let item of cartDetail;  index as i">
+                        <td> {{i+1}}</td>
+                        <td>{{item.productName}}</td>
+                        <td>{{getResturant(item.restaurantId)}}</td>
+                        <td>{{item.productDec}}</td>
+                        <td><img [src]="item.productImg" class="img-fluid" alt="Responsive image">
+                        </td>
+                        <td>{{item.productPrice}}</td>
+                    </tr>
+
+                </table>
+                <br>
+                <p class="font-semibold	">Total Price : {{totalPrice() | number:'1.2-2'}}</p>
+                <p>
+                    We hope you enjoyed your shopping experience with us and that you will visit us again soon.
+                    <button
+                        class="bg-indigo-500 mt-4 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full cursor-pointer"
+                        (click)="goToHome()">Go To Home</button>
+                </p>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>

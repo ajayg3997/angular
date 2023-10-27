@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled){
+    background-color:#f9fafb !important
+}
+.mat-mdc-form-field-infix{
+    min-height:44px !important
+}
+.mat-mdc-text-field-wrapper:not(.mdc-text-field--outlined) .mat-mdc-form-field-infix{
+    padding-top:12px !important
+}
+.mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label{
+    top:20px !important;
+    font-size: 14px !important;
+}
+.mat-mdc-select-arrow svg{
+    transform: translate(-50%, -22%) !important;
+}
+.text-sm{
+    font-size: 14px !important;
+}
+.mat-mdc-select-value-text{
+    font-size: 14px !important;
+}

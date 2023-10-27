@@ -1,0 +1,70 @@
+<section class="h-screen">
+    <div class="container h-full px-6 py-8">
+        <div class="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
+            <!-- Left column container with background-->
+            <div class="mb-12 md:mb-0 md:w-8/12 lg:w-6/12">
+                <img src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+                    class="w-full" alt="Phone image" />
+            </div>
+
+            <!-- Right column container with form -->
+            <div class="md:w-8/12 lg:ml-6 lg:w-5/12">
+
+                <form class="w-full" [formGroup]="signUpForm">
+                    <div class="pb-2">
+                        <div>
+                            <mat-radio-group formControlName="isAdmin" class="my-5">
+                                <mat-radio-button [value]="true">Sign Up as Admin</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                    </div>
+                    <mat-form-field class="w-full case-study text-sm">
+                        <mat-label>User Name</mat-label>
+                        <input matInput placeholder="Please Enter User Id" formControlName="userName">
+                    </mat-form-field>
+
+                    <mat-form-field class="w-full case-study text-sm">
+                        <mat-label>Email ID</mat-label>
+                        <input matInput placeholder="Please Enter User Id" formControlName="emailId">
+                        <mat-error *ngIf="signUpForm.controls['emailId'].errors">
+                            Email must be a valid email address
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="w-full case-study text-sm">
+                        <mat-label>Address</mat-label>
+                        <input matInput placeholder="Please Enter User Id" formControlName="address">
+                    </mat-form-field>
+
+                    <mat-form-field class="w-full case-study text-sm">
+                        <mat-label>Password</mat-label>
+                        <input matInput placeholder="Please Enter Password" formControlName="password">
+                    </mat-form-field>
+
+                    <mat-form-field class="w-full case-study text-sm">
+                        <mat-label>Confirm Password</mat-label>
+                        <input matInput placeholder="Please Enter Password" formControlName="confirmPassword" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="signUpForm.hasError('notSame')">
+                            Passwords do not match
+                        </mat-error>  
+                    </mat-form-field>
+                </form>
+                <!-- Remember me checkbox -->
+                <div class="mb-6 flex items-center justify-between">
+                    <!-- Forgot password link -->
+                    <a href='#' [routerLink]="['../login']"
+                        class="text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600">
+                        Go to login?</a>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" (click)="signUp()"
+                    class="inline-block w-full rounded bg-teal-500 px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]
+                     focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                    data-te-ripple-init data-te-ripple-color="light">
+                    Sign up
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

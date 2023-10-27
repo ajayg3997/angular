@@ -1,0 +1,35 @@
+<h2 mat-dialog-title class="border-b border-teal-600 text-base">Add Product</h2>
+
+<mat-dialog-content class="mat-typography">
+    <form class="w-full" [formGroup]="product" method="post" enctype="multipart/form-data">
+        <mat-form-field class="w-full case-study text-sm">
+            <mat-label>Select Restaurant</mat-label>
+            <mat-select formControlName="restaurantName">
+                <ng-container *ngFor="let res of restaurant">
+                    <mat-option [value]="res?._id">{{res.restaurantName}}</mat-option>
+                </ng-container>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="w-full case-study text-sm">
+            <mat-label>Product Name</mat-label>
+            <input matInput placeholder="Please Enter Product Name" formControlName="productName">
+        </mat-form-field>
+
+        <mat-form-field class="w-full case-study text-sm">
+            <mat-label>Product Price</mat-label>
+            <input type="number" matInput placeholder="Please Enter Product Price" formControlName="productPrice">
+        </mat-form-field>
+
+        <mat-form-field class="w-full case-study text-sm">
+            <mat-label>Product Description</mat-label>
+            <textarea matInput placeholder="Please Enter Product Description" formControlName="productDec"></textarea>
+        </mat-form-field>
+
+        <input type="file" class="file-input" #fileInput>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="createProduct()">Save</button>
+</mat-dialog-actions>

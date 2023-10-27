@@ -1,0 +1,45 @@
+<h1 class="text-lg	font-semibold">Restaurants</h1>
+
+<div class="w-full text-right">
+    <button type="submit" (click)="addRestaurant('')"
+        class="inline-block  rounded bg-teal-500 px-7 pb-2.5 pt-3 text-sm font-medium  leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+        data-te-ripple-init data-te-ripple-color="light">
+        Add Restaurants
+    </button>
+</div>
+
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-8">
+    <ng-container *ngIf="restaurant !== undefined && restaurant !== null">
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Restaurants name
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Restaurants Address
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700" *ngFor="let rest of restaurant; trackBy:trackByFn">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        {{rest.restaurantName}}
+                    </th>
+                    <td class="px-6 py-4">
+                        {{rest.restaurantAddress}}
+                    </td>
+                    <td class="px-6 py-4">
+                        <a (click)="addRestaurant(rest._id)" class="cursor-pointer	font-medium text-blue-600 dark:text-blue-500 hover:underline mr-4">Edit</a>
+                        <a (click)="deleteRestaurant(rest._id)" class="cursor-pointer font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+    
+</div>
